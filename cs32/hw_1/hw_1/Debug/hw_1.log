@@ -1,0 +1,23 @@
+﻿  testnewSequence.cpp
+  testSequence.cpp
+  testScoreList.cpp
+  newSequence.cpp
+  Sequence.cpp
+  ScoreList.cpp
+  Generating Code...
+Sequence.obj : error LNK2005: "public: __thiscall Sequence::Sequence(void)" (??0Sequence@@QAE@XZ) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: bool __thiscall Sequence::empty(void)const " (?empty@Sequence@@QBE_NXZ) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: bool __thiscall Sequence::erase(int)" (?erase@Sequence@@QAE_NH@Z) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: int __thiscall Sequence::find(unsigned long const &)const " (?find@Sequence@@QBEHABK@Z) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: bool __thiscall Sequence::get(int,unsigned long &)const " (?get@Sequence@@QBE_NHAAK@Z) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: int __thiscall Sequence::insert(unsigned long const &)" (?insert@Sequence@@QAEHABK@Z) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: bool __thiscall Sequence::insert(int,unsigned long const &)" (?insert@Sequence@@QAE_NHABK@Z) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: int __thiscall Sequence::remove(unsigned long const &)" (?remove@Sequence@@QAEHABK@Z) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: bool __thiscall Sequence::set(int,unsigned long const &)" (?set@Sequence@@QAE_NHABK@Z) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: int __thiscall Sequence::size(void)const " (?size@Sequence@@QBEHXZ) already defined in newSequence.obj
+Sequence.obj : error LNK2005: "public: void __thiscall Sequence::swap(class Sequence &)" (?swap@Sequence@@QAEXAAV1@@Z) already defined in newSequence.obj
+testScoreList.obj : error LNK2005: "void __cdecl test(void)" (?test@@YAXXZ) already defined in testnewSequence.obj
+testScoreList.obj : error LNK2005: _main already defined in testnewSequence.obj
+testSequence.obj : error LNK2005: "void __cdecl test(void)" (?test@@YAXXZ) already defined in testnewSequence.obj
+testSequence.obj : error LNK2005: _main already defined in testnewSequence.obj
+C:\Users\Christian\Documents\Visual Studio 2015\Projects\cs32\hw_1\Debug\hw_1.exe : fatal error LNK1169: one or more multiply defined symbols found

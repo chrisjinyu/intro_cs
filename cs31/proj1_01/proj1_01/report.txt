@@ -1,0 +1,54 @@
+original.cpp
+	test0
+		numberSurveyed set to 100 ; forHillary set to 50 ; forDonald set to 50
+		results printed:
+			50.0% say they will vote for Hillary.
+			50.0% say they will vote for Donald.
+			Donald is predicted to win the election. //inherent logic error in original.cpp
+	test1
+		numberSurveyed set to 50 ; forHillary set to 24 ; forDonald set to 26
+		results printed:
+			48.0% say they will vote for Hillary.
+			52.0% say they will vote for Donald.
+			Donald is predicted to win the election. //reasonable
+	test2
+		numberSurveyed set to 10 ; forHillary set to 6 ; forDonald set to 4
+		results printed:
+			60.0% say they will vote for Hillary.
+			40.0% say they will vote for Donald.
+			Hillary is predicted to win the election. //reasonable
+	test3
+		numberSurveyed set to -20 ; forHillary set to -1000 ; forDonald set to -999
+		results printed:
+			5000.0% say they will vote for Hillary. //out of bound percentages
+			4995.0% say they will vote for Donald.
+			Donald is predicted to win the election. //intent/logic error?
+logic_error.cpp // all inputs from here on out will be the same as corresponding tests above
+	test0
+		results printed:
+			60.0% say they will vote for Hillary. //incorrect percentage calculation
+			40.0% say they will vote for Donald. //incorrect percentage calculation
+			John Smith is predicted to win the election //nonsensical result (name)
+	test1
+		results printed:
+			48.0% say they will vote for Hillary. //incorrect percentage calculation
+			41.6% say they will vote for Donald. //incorrect percentage calculation
+			John Smith is predicted to win the election //nonsensical result
+	test2
+		results printed:
+			60.0% say they will vote for Hillary. //incorrect percentage calculation
+			32.0% say they will vote for Donald. //incorrect percentage calculation
+			Bob Ross is predicted to win the election //nonsensical result
+	test3
+		results printed:
+			5000.0% say they will vote for Hillary. //incorrect percentage calculation (out of bounds)
+			3996.0% say they will vote for Donald. //incorrect percentage calculation (out of bounds)
+			John Smith is predicted to win the election //nonsensical result
+compile_error.cpp
+	build fails, prompted to use last successful build instead
+	
+Results are the same when tests are duplicated on g++ compilation.
+
+		
+		
+		

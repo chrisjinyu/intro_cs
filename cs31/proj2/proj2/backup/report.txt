@@ -1,0 +1,55 @@
+Project 2 Report
+Christian Yu
+104785497
+
+NOTABLE OBSTACLES
+	No significant obstacles were encountered while writing the program.
+	However, there were smaller obstacles such as typing errors and usage of the getline(cin,string) with cin << int
+	that were encountered and resolved through a quick review of both functions.
+
+LIST OF TEST DATA
+	Test0 : all inputs invalid
+		- Identification:	""
+		- Revenue:			-1
+		- Country:			""
+		:: expected			"You must enter a property identification."
+	Test1 : revenue and country invalid
+		- Identificatoin:	"Random Property"
+		- Revenue:			-424
+		- Country:			""
+		:: expected			"The expected revenue must be nonnegative."
+	Test2 : country invalid
+		- Identification:	"valid string"
+		- Revenue:			45
+		- Country:			""
+		:: expected			"You must enter a country."
+	Test3 : valid, revenue <= 20
+		- Identification:	"big"
+		- Revenue:			14
+		- Country:			"turkey"
+		:: expected			"The license fee for big is $2.534 million."
+	Test4 : valid, revenue <=20, Turkey
+		- Identification:	"yuge"
+		- Revenue:			14
+		- Country:			"Turkey"
+		:: expected			"The license fee for big is $2.534 million."
+	Test5 : valid, 20 <= revenue <=50
+		- Identification:	"8328dgo"
+		- Revenue:			29
+		- Country:			"UaE"
+		:: expected			"The license fee for 8328dgo is $5.447 million."
+	Test6 : valid, 20 <= revenue <=50, UAE
+		- Identification:	"8328dgo"
+		- Revenue:			29
+		- Country:			"UAE"
+		:: expected			"The license fee for 8328dgo is $5.573 million."
+	Test7 : valid, revenue >=50
+		- Identification:	"a"
+		- Revenue:			79
+		- Country:			"uaE"
+		:: expected			"The license fee for a is $16.380 million."
+	Test8 : valid, revenue >=50, UAE
+		- Identification:	"b"
+		- Revenue:			79
+		- Country:			"UAE"
+		:: expected			"The license fee for a is $16.800 million."

@@ -1,0 +1,4 @@
+﻿  rats.cpp
+c:\users\christian\documents\visual studio 2015\projects\ratz\ratz\rats.cpp(817): warning C5030: attribute 'gnu::unused' is not recognized
+  ratz.vcxproj -> C:\Users\Christian\documents\visual studio 2015\Projects\ratz\Debug\ratz.exe
+  ratz.vcxproj -> C:\Users\Christian\documents\visual studio 2015\Projects\ratz\Debug\ratz.pdb (Partial PDB)

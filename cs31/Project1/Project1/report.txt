@@ -1,0 +1,127 @@
+Christian Yu
+104785497
+CS31_Project4
+
+NOTABLE OBSTACLES
+	The most notable obstacle was figuring out how to implement
+	separate() without using another array. I attempted to use one
+	iteration of quicksort, but ended up using a modified sort while
+	also using rotateLeft() and a modified rotateRight().
+	
+TEST DATA
+
+	string array[3] = {"jibjob", "moo", "rrrrrsedsfs"};
+		>appendToAll(array, -32, "0");
+			::returns -1, since n<0
+			::array is unchanged
+		>appendToAll(array, 3, "0");
+			::returns 3
+			::array becomes {"jibjob0", "moo0", "rrrrrsedsfs0"}
+		>appendToAll(array, 0, "!!!!");
+			::returns 0
+			::array remains unchanged
+		>appendToAll(array, 2, "0");
+			::returns 2
+			::array becomes {"jibjob00", "moo00", "rrrrrsedsfs0"}
+		>lookup(array, -252, "rrrrrsedsfs0");
+			::returns -1, since n<0
+		>lookup(array, 3, "notfound");
+			::returns -1, "notfound" is not in the array
+		>lookup(array, 3, "rrrrrsedsfs0");
+			::returns 2
+		>lookup(array, 2, "rrrrrsedsfs0");
+			::returns -1, not found in 2 size\
+		>lookup(array, 0, "jibjob00");
+			::returns -1, empty sequence contains nothing
+		>rotateLeft(array, 3, 5);
+			::returns -1, invalid position
+		>rotateLeft(array, 0, 0);
+			::returns -1, invalid position	
+		>rotateLeft(array, 3, 0);
+			::returns 0, position
+			::array is now {"moo00", "rrrrrsedsfs0", "jibjob00"}
+		>rotateLeft(array, 3, 1);
+			::returns 1, position
+			::array is now {"moo00", "jibjob00", "rrrrrsedsfs0"}
+			
+	string geg[5] = {"one", "three", "three", "two", "fivety"}
+		>lookup(geg, 5, "three");
+			returns 1, which is the first position where "three" is found in geg
+		>positionOfMax(geg, 0);
+			::returns -1, since empty
+		>positionOfMax(geg, 5);
+			::returns 3, "two" is last alphabetically in array
+		>positionOfMax(geg, 3);
+			::returns 1, "three" is last in the first 3, and first one is chosen
+		>flip(geg, 5);
+			::returns 5
+			::geg is now {"fivety", "two", "three", "three", "one"}
+		>flip(geg, 4);
+			::returns 4
+			::geg is now {"three", "three", "two", "fivety", "one"}
+		>flip(geg, 3);
+			::returns 3
+			::geg is now {"two", "three", "three", "fivety", "one"}
+		>flip(geg, 0);
+			::returns 0
+			::geg is unchanged
+		>countRuns(geg, 5);
+			::returns 4, four runs are in the array
+		>countRuns(geg, 3);
+			::returns 2, two runs in the first 3
+		>countRuns(geg, 0);
+			::returns 0, empty sequence
+			
+	string zzz[5] = {"two", "three", "not3", "fivety", "one"};
+		>differ(geg, 5, zzz, 5);
+			::returns 2, since "three" != "not3"
+		>differ(geg, 5, zzz, 2);
+			::returns 2, since 2 is the smaller size, and they are equal until index 1
+		>differ(geg, 0, zzz, 5);
+			::returns 0, since empty string
+		>subsequence(geg, 5, zzz, 2);
+			::returns 0, since {"two", "three"} is found in geg at position 0
+		>subsequence(zzz, 5, zzz, 0);
+			::returns 0, since empty sequence is found at position 0
+			
+	string bigOne[10] = {"nineny", "sisifus", "playdo", "two", "three",
+						 "not3", "fivety", "one", "nineny", "sisifus"};
+	string alsoBig[10] = {"pool", "golf", "voz", "oy", "jojo",
+						 "one", "nenil", "eOes", "JdTs", "0?d"};
+	string smallOne[2] = {"nineny", "sisifus"};
+		>subsequence(bigOne, 10, zzz, 5);
+			::returns 3, which is where zzz sequence begins in bigOne
+		>subsequence(bigOne, 10, smallOne, 2);
+			::returns 0, which is where the sequence first appears in bigOne
+		>subsequence(array, 0, bigOne, 0);
+			::returns 0, since empty sequences are part of empty sequences
+		>subsequence(bigOne, -1, array, 3);
+			::returns -1, since negative parameter
+		>subsequence(bigOne, 10, array, 3);
+			::returns -1, since array is not found in bigOne
+		>lookupAny(bigOne, 10, smallOne, 2);
+			::returns 0, since that is the first position in which something is found
+		>lookupAny(bigOne, 10, array, 0);
+			::returns -1, since there is no element in bigOne that is in array
+		>lookupAny(bigOne, 10, alsoBig, 10);
+			::returns 7, since "one" also appears in alsoBig
+		>lookupAny(smallOne, 0, zzz, 3);
+			::returns -1, since nothing is found in empty string
+		
+		>separate(bigOne, 10, "neenby");
+			::returns 1
+			::bigOne now has fivety in pos 0, then the rest after that
+		>separate(bigOne, 10, "qqqq");
+			::returns 6
+			::bigOne now has "nineny", "one", "not3", "playdo", "nineny", "fivety"
+			  in the beginning, the rest after that
+		>separate(bigOne, 10, "zzzzzzzzzzz");
+			::returns 10, since no elements are >"zzzzzzzzzzz"
+			::bigOne has all elements in some order (my code reverses it)
+		>separate(alsoBig, 0, "ojfeo");
+			::returns 0, since there are no elements > "ojfeo"
+			::alsoBig remains unchanged
+		>separate(alsoBig, 10, "golf");
+			::returns 3, which is the number of elements <"golf"
+			::alsoBig contains "0?d", "JdTs", "eOes" in first 3 indeces, then "golf"
+			  then the rest of the elements after that

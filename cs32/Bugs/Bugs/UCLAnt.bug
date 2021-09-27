@@ -1,0 +1,7 @@
+colony: UCLAnt
+ 
+start:
+	faceRandomDirection
+	moveForward
+	goto start
+	

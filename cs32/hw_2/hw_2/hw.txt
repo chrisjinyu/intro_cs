@@ -1,0 +1,60 @@
+CS32 HOMEWORK 2
+Christian Yu
+104785497
+CS32-2 w/ Smallberg
+
+2.	    "XXXXXXXXXX",
+		"Xn.......X",
+		"XX.X.XXXXX",
+		"X..X.X...X",
+		"X..X...X.X",
+		"XXXX.XXX.X",
+		"X.X.s..XXX",
+		"X..XX.XX.X",
+		"X...X....X",
+		"XXXXXXXXXX"
+		
+	The first 12 popped Coordinates are as follows:
+	(6,4)
+	(6,3)
+	(6,5)
+	(7,5)
+	(8,5)
+	(8,6)
+	(8,7)
+	(8,8)
+	(7,8)
+	(6,6)
+	(5,4)
+	(4,4)
+	
+2.	    "XXXXXXXXXX",
+		"Xn.......X",
+		"XX.X.XXXXX",
+		"X..X.X...X",
+		"X..X...X.X",
+		"XXXX.XXX.X",
+		"X.X.s..XXX",
+		"X..XX.XX.X",
+		"X...X....X",
+		"XXXXXXXXXX"
+		
+	The first 12 dequeued Coordinates are as follows:
+	(6,4)
+	(5,4)
+	(6,5)
+	(6,3)
+	(4,4)
+	(6,6)
+	(7,5)
+	(3,4)
+	(4,5)
+	(8,5)
+	(2,4)
+	(4,6)
+	
+	The algorithms for searching in graphs with stacks and with queues are different in that
+	stack-based search algorithms will search depth-wise, meaning it will tend to go further
+	down longer pathways first depending on push order. Queue-based search algorithms will
+	search breadth-first, meaning it will gradually radiate from the starting point to search
+	the entire system.

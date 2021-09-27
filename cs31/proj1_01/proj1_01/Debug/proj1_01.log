@@ -1,0 +1,8 @@
+﻿  original.cpp
+  compile_error.cpp
+c:\users\christian\documents\visual studio 2015\projects\proj1_01\proj1_01\compile_error.cpp(7): error C2144: syntax error: 'int' should be preceded by ';'
+c:\users\christian\documents\visual studio 2015\projects\proj1_01\proj1_01\compile_error.cpp(14): error C2065: 'numberSurveyed': undeclared identifier
+c:\users\christian\documents\visual studio 2015\projects\proj1_01\proj1_01\compile_error.cpp(20): error C2065: 'numberSurveyed': undeclared identifier
+c:\users\christian\documents\visual studio 2015\projects\proj1_01\proj1_01\compile_error.cpp(21): error C2065: 'numberSurveyed': undeclared identifier
+  Generating Code...
+c:\users\christian\documents\visual studio 2015\projects\proj1_01\proj1_01\original.cpp(12): error C4700: uninitialized local variable 'numberSurveyed' used

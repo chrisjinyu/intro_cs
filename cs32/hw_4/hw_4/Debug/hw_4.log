@@ -1,0 +1,4 @@
+﻿  sort.cpp
+c:\users\christian\documents\visual studio 2015\projects\cs32\hw_4\hw_4\sort.cpp(142): warning C4018: '<': signed/unsigned mismatch
+  hw_4.vcxproj -> C:\Users\Christian\Documents\Visual Studio 2015\Projects\cs32\hw_4\Debug\hw_4.exe
+  hw_4.vcxproj -> C:\Users\Christian\Documents\Visual Studio 2015\Projects\cs32\hw_4\Debug\hw_4.pdb (Partial PDB)

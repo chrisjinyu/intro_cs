@@ -1,0 +1,140 @@
+Christian Yu
+104785497
+CS31_Project3
+
+NOTABLE OBSTACLES
+	The most notable obstacle I encountered was organization of control structures in order
+	to return the correct error codes and traverse the string to check for syntax. I opted
+	for using three states to signal the transversal state as State Code, Digit, and Party,
+	which allowed me to easily cycle through and check each "block" case by case. Other
+	obstacles I encountered were learning how to parse a string to an int, found online.
+
+PROGRAM DESIGN
+	As stated above, hasCorrectSyntax(string) was implemented by using variable [int block]
+	in order to determine when and which parts of pollData were being checked to verify the
+	syntax of the string. By using the three states in a loop, I could cycle through each
+	transversal state and only have to check for each case. Each "block" separated by this
+	method made the specification easier to fulfill.
+
+	This function can be more simply described as:
+
+		check basic/trivial validity of poll data string
+		start with state code
+		using sequential blocks
+			if now on state code
+				is it a valid state code?
+					false if no
+				move to digit
+			if now on digit
+				valid digit block?
+					false if no
+				move to party
+			if now on party
+				alphabetic character?
+					false if no
+				move to state code
+		end on state code?
+			true if yes
+			false if no
+		
+	countVotes(string, char, int&) was also implemented with a loop, except bound from the
+	fourth position of the string to the end after checking validity to make sure no out-
+	of-bound calls are made. This fourth position starts at the minimum position of the first
+	party block (State code takes up 2, digit can take up 1 or 2). The program uses a temporary
+	string to store one or two characters, then parses them into an int, which is either checked
+	for 0 or added to a counter. Because errors/validity had already been checked, the program
+	sets the int& voteCount to the counted value and returns 0.
+
+	This function can be more simply described as:
+
+		if bad syntax
+			return 1
+		if non-alphabetic argument for char party
+			return 3
+		for every character in string that matches party
+			add the number appearing beforehand to votes
+			if no new votes
+				return 2
+		set vote count to sum of votes
+		return 0
+		
+TEST DATA
+	Set0 : empty string ""
+		> hasCorrectSyntax("");
+			:: expected		true
+			:: tests empty string is valid
+		> countVotes("", 'a', voteCount);
+			:: expected		0, no change to any values
+			:: tests value changing on empty string
+		> countVotes("", '#', voteCount);
+			:: expected		3, no change to any values
+			:: tests invalid character argument
+
+	Set1 : single state forecasts
+		> hasCorrectSyntax("NV99D");
+			:: expected		true
+			:: tests standard syntax
+		> countVotes("NV99D", 'D', dVotes); //dVotes = 0 before
+			:: expected		0, dVotes==99 is true
+			:: tests changing of dVotes and valid return code
+		> hasCorrectSyntax("nv9d");
+			:: expected		true
+			:: tests valid syntax
+		> countVotes("nv9d", 'D', dVotes); //same scope as above, dVotes==99 is true
+			:: expected		0, dVates==9 is true
+			:: tests changing of dVotes in the same scope
+		> hasCorrectSyntax("iD00z");
+			:: expected		true
+			:: more valid syntax, but with double zeroes
+		> countVotes("iD00z", 'z', zVotes); //zVotes = 23
+			:: expected		2, zVotes==23 is true
+			:: tests 0 electoral votes result code, no change
+		> hasCorrectSyntax("Gg44M");
+			:: expected		false (invalid state code)
+			:: tests state code validity
+		> countVotes("Gg44M", 'm', mVotes); //mVotes = 41
+			:: expected		1, mVotes==41 is true
+			:: tests state code validity return code
+		> hasCorrectSyntax("kY321L");
+			:: expected		false (too many digits)
+			:: tests number of digits
+		> countVotes("ky321L", 'l', lVotes); //lVotes = 0
+			:: expected		1, lVotes==0 is true
+			:: tests syntax error validity return code
+		> countVotes("ky32L", '#', lVotes); //lVotes = 0
+			:: expected		3, lVotes==0 is true
+			:: tests invalid character input and no change
+			
+	Set2 : multiple combined state forecasts
+		> hasCorrectSyntax("NV99DiD5zKy12r");
+			:: expected		true
+			:: tests combined above for multiple states
+		> countVotes("NV99DiD5dKy12r", 'd', jfsaiuf); //jfsaiuf = 3
+			:: expected		0, jfsaiuf==104 is true
+			:: tests standard expected syntax for the above
+		> hasCorrectSyntax("ia0rFl32gCA99zvA02zwi07rrI64z");
+			:: expected		true
+			:: testing even longer, more ridiculous strings
+		> countVotes("ia0rFl32gCA99ZvA02zwi07rrI64z", 'Z', zVotes); //zVotes = -48
+			:: expected		0, zVotes==165 is true
+			:: tests character precision, numerical addition, potential position errors
+			   (wi07r rI64z can be overlapped at [07rrI] if implemented incorrectly)
+		> hasCorrectSyntax("ia0rFl32gCf99zvA02zwi07rrI64z");
+			:: expected		false
+			:: testing even longer, more ridiculous strings, invalid state code
+		> hasCorrectSyntax("ia0rFl32gCa992zvA02zwi07rrI64z");
+			:: expected		false
+			:: testing even longer, more ridiculous strings, extraneous digits
+		> countVotes("ia0rFl32gCA99zvA02zwi07rrI64z", 'r', rVotes); //rVotes = 30
+			:: expected		2, rVotes==30 is true
+			:: tests 0 electoral votes and result effect to value rVotes
+		> countVotes("ia0rFl32gCA99zvA02zwi07rrIz64z", 'r', rVotes); //rVotes = 30
+			:: expected		1, rVotes==30 is true
+			:: tests invalid syntax (wi07rrI-z-64z)
+		> countVotes("hI03GgA31lla1lmo00l", 'G', lVotes); //lVotes = 0
+			:: expected 	2, lVotes==0 is true
+			:: tests that value isn't set until return value is apparent
+		> countVotes("hI03GgA31lla1lmo05l", '*', rVotes); //rVotes = 30
+			:: expected		3, rVotes==30 is true
+			:: tests invalid characters result effect
+		
