@@ -1,0 +1,58 @@
+CS32 PROJECT 4
+Christian Yu
+104785497
+CS32-2 w/ Smallberg
+
+ =====================================
+=====----- BIG-O EXPRESSIONS -----=====
+ =====================================
+ 
+MyMap:
+	associate()
+		The average Big-O for associate() is O(log N). This
+		is because the Binary Search Tree data structure being used
+		divides the region of insertion by half for each iteration.
+		In other words, the correct position of placement within the
+		map will be found within some log N (specifically base 2) iterations,
+		where N is the number of items already in the map.
+	find()
+		The find() function also has a Big-O of O(log N). Similarly, the
+		search width is narrowed to approximately half its size after each
+		instance of data access. Thus, for some N number of items, the find()
+		function will, on average, find (or not find, in which case it will be
+		O(N) as it must traverse N/2 units) an item by some log N (specifically
+		base 2) iterations.
+		
+AttractionMapper
+	init()
+		In the initialization of AttractionMapper, the init() function processes
+		each of L characters (to make them lowercase for case-insensitive purposes)
+		of the names in each of A Attraction objects in each of S segments. Thus the 
+		time is dependent on a Big-O of O(S*A*L).
+	getGeoCoord()
+		Before searching for the name, getGeoCoord() first makes all of L characters
+		in the name lowercase. The function then calls the MyMapImpl find() function,
+		which has a O(log N) time dependency. Thus, the total Big-O on average is 
+		O(L + log N), or simply O(log N), as the name is unlikely to be significantly large.
+		
+SegmentMapper
+	init()
+		The init() function for SegmentMapper inserts some A number of Attraction objects
+		and search through a map of O(log N) speed and a vector of some V units (for comparison of
+		end values), all within a number of S segments. Thus, the Big-O for this function is
+		dependent on O(S*A*2V*log N) or simply O(SAVlog N). At the worst case, where the map search
+		fails, the vector is not searched, so the time becomes O(S*A*N).
+	getSegments()
+		This function merely relies only on using the find function from the map. Thus, the
+		Big-O for this function is O(log N), for some N number of initialized segments.
+		
+Navigator
+	navigate()
+		Since the A* implementation is based on the use of an additional heuristic function, the
+		complexity depends on the heuristic itself. Since the heuristic is based on a constant
+		number of operations per checked Node object, and the most ideal case for time complexity
+		would simply be the number of units N from the start to end of the navigation, the Big-O
+		notation for the algorithmical portion can be described by O(hN), where h is some constant
+		effect on the speed of the time constant, or simply O(N). After completing the algorithm and
+		finding a path to the end, however, navigate() must call on other methods that retraces through
+		N nodes to reconstruct a path. Thus the total Big-O notation is O(N^2).

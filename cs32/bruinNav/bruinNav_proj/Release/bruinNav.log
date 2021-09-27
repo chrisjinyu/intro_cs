@@ -1,0 +1,11 @@
+﻿  AttractionMapper.cpp
+  main.cpp
+  MapLoader.cpp
+  Navigator.cpp
+  SegmentMapper.cpp
+  support.cpp
+  Generating code
+  All 547 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  bruinNav.vcxproj -> C:\Users\Christian\Documents\Visual Studio 2015\Projects\cs32\bruinNav\Release\bruinNav.exe
+  bruinNav.vcxproj -> C:\Users\Christian\Documents\Visual Studio 2015\Projects\cs32\bruinNav\Release\bruinNav.pdb (Full PDB)
